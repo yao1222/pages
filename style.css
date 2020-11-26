@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: #8a8a8a;
+}
+.container{
+    width: 50vw;
+    margin: 0 auto;
+    text-align: center;
+    background: #36868d;
+    border-radius: 10px;
+}
