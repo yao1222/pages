@@ -1,14 +1,85 @@
-*{
-    box-sizing: border-box;
+body{
+    background: url(bg.jpg);
 }
 
-body{
-    background: #8a8a8a;
-}
 .container{
-    width: 50vw;
-    margin: 0 auto;
+    position: absolute;
+    height: 80vh;
+    width: 40vw;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    backdrop-filter:blur(5px);
+    box-shadow: 0 0 50px black;
+}
+
+.addItem{
+    position: absolute;
+    height: 3px;
+    width:78%;
+    /* margin: auto; */
+    top:65px;
+    right: 0;left:0;bottom: 0;
+    outline: none;
+    border: none;
+    padding: 20px;
+    padding-right: 50px;
+    font-family: sans-serif,Arial, Helvetica;
+}
+
+.addBtn{
+    position: absolute;
+    background: white;
+    color:black;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    top: 65px;
+    right: 15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.container ul,
+.container li{
+    list-style: none;
+}
+
+.container li {
+margin-bottom: 10px;
+color: white;
+padding: 2px 0 2px 25px;
+font-size: 1.3rem;
+font-weight: 800;
+text-shadow: black 0.1em 0.1em 0.2em
+}
+
+.container li span{
+    width: 25px;
+    color: white;
+    cursor: pointer;
+font-size: 1rem;
+margin-right: 20px;
+}
+
+.list{
+    height: 75%;
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+h1{
     text-align: center;
-    background: #36868d;
-    border-radius: 10px;
+    margin-bottom: 30px;
+    color: whitesmoke;
+    text-shadow: black 0.1em 0.1em 0.2em
 }

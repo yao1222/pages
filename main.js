@@ -1,48 +1,43 @@
+// use IIFEs
 (function () {
-    const form = document.querySelector('form')
-    const displayArea = document.querySelector('ul')
-    const wishList = JSON.parse(localStorage.getItem('wishList')) || []
+    const form = document.querySelector('form');
+    const displayArea = document.querySelector('ul');
+    const bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
-    function displayWishList() {
-        wishList.forEach(wish => displayWish(wish))
+    function showBook() {
+        bookList.forEach(item => bookHTML(item));
+        console.log('showBook Function');
     }
 
-    function displayWish(input) {
-        displayArea.innerHTML += `
-        <li>${input}<span>X</span></li>
-      `
+    function bookHTML(input) {
+        displayArea.innerHTML += `<li><span>X</span>${input}</li>`;
     }
 
     function updateLocalStorage() {
-        //store the list back to localStorage
-        localStorage.setItem('wishList', JSON.stringify(wishList))
+        localStorage.setItem('bookList', JSON.stringify(bookList));
     }
 
-    //display all the wish on the list from localStorage
-    displayWishList()
 
-    //add event listener to form
-    form.addEventListener('submit', event => {
-        //prevent auto send the form
-        event.preventDefault()
-        //get input value
-        const input = document.querySelector('input[type="text"]')
-        //add new wish to the list
-        displayWish(input.value)
-        //add new wish to the list
-        wishList.push(input.value)
-        //add the wish to localStorage
-        updateLocalStorage(input.value)
-        //clear up the input
-        input.value = ''
+    // Show on the page
+    showBook();
+
+    // Listener for add
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const bookInput = document.getElementById('bookInput');
+        bookHTML(bookInput.value);
+        bookList.push(bookInput.value);
+        updateLocalStorage(bookInput.value);
+        bookInput.value = '';
     })
-
-    displayArea.addEventListener('click', event => {
-        if (event.target.tagName !== 'SPAN') { return }
-        const li = event.target.parentElement
-        li.remove()
-        wishList.splice(wishList.indexOf(li.textContent.slice(0, -1)), 1)
-        updateLocalStorage()
+    // Listener for delete
+    displayArea.addEventListener('click', e => {
+        if (e.target.tagName !== 'SPAN') { return }
+        const li = e.target.parentElement;
+        li.remove();
+        bookList.splice((bookList.indexOf(li.textContent.slice(0, -1))), 1);
+        updateLocalStorage();
     })
 
 })()
+
