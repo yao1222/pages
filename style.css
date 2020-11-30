@@ -5,7 +5,7 @@ body{
 .container{
     position: absolute;
     height: 80vh;
-    width: 40vw;
+    width: 40%;
     margin: auto;
     top: 0;
     right: 0;
@@ -18,14 +18,13 @@ body{
 .addItem{
     position: absolute;
     height: 3px;
-    width:78%;
+    /* width:100%; */
     /* margin: auto; */
     top:65px;
     right: 0;left:0;bottom: 0;
     outline: none;
     border: none;
     padding: 20px;
-    padding-right: 50px;
     font-family: sans-serif,Arial, Helvetica;
 }
 
